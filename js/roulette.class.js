@@ -18,4 +18,25 @@ class Roulette{
 			this.tickets.push(t);
 		}
 	}
+
+	getUsers(){
+		return this.users;
+	}
+
+
+	game(){
+		var win = Math.round(Math.random() * this.tickets.length);
+		return this.tickets[win];
+	}
+
+
+	findWinner(num_win){
+		var winner = null;
+		for (var i = 0; i < this.users.length; i++){
+			if(this.users[i].isWinner(num_win)){
+				winner = this.users[i];
+			}
+		}
+		return winner;
+	}
 }
